@@ -38,3 +38,54 @@ def maxcara(numi,numf):
             max = aux
     
     return max
+
+#Función para ingresar los casos de prueba que se desean determinar, en base a las especificaciones.
+
+def icp():
+    while True:
+        b = ['B','C','A','D']
+        aux = 0
+        numi = ''
+        numf = ''
+        ei = ''
+        ef = ''
+        ryc = input('Ingrese el rango de años A-B:\n')
+
+        for pos,char in enumerate(ryc):
+            if(char == "-"):
+                aux = pos
+                break
+            else:
+                if(char.isdigit()):
+                    numi += char
+
+        for pos,char in enumerate(ryc):
+            if(pos > aux):
+                if(char.isdigit()):
+                    numf += char
+        
+        for i in b:
+            for pos,char in enumerate(ryc):
+                if(pos == aux):
+                    break
+                else:
+                    if( i == char):
+                        ei += i
+
+        for pos,char in enumerate(ryc):
+            if(pos > aux):
+                for i in b:
+                    if( i == char):
+                        ef += i
+        if(ei == 'BC' and int(numi) > 753):
+            print('Año ingresado no corresponde a la época de Roma.')
+        elif(ef == 'BC' and int(numf) > 753):
+            print('Año ingresado no corresponde a la época de Roma.')
+        else:
+            print(maxcara(yrom(int(numi),ei),yrom(int(numf),ef)))
+            exit()
+
+#Ejecución de icp()
+#Para ejecutar las pruebas unitarias a las funciones comentar la siguiente línea. 
+
+icp() 
