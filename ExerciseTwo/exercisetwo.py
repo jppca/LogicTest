@@ -25,3 +25,16 @@ def convrom(ar):
                 ar -= i
 
     return numroman 
+
+#Función encargada de retornar el máximo de caracteres necesarios, tomando como entrada el rango de los años.
+
+def maxcara(numi,numf):
+    max = 0
+    aux = 0
+    
+    for i in range(numi,numf+1):
+        aux = len(convrom(i))
+        if(aux > max):
+            max = aux
+    
+    return max

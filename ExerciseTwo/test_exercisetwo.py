@@ -12,5 +12,10 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(exercisetwo.yrom(300,"BC"),453)
         self.assertEqual(exercisetwo.yrom(2000,"AD"),2753)
 
+    def test_maxcara(self):
+        self.assertEqual(exercisetwo.maxcara(753,754),7)
+        self.assertEqual(exercisetwo.maxcara(1,6),3)
+        self.assertEqual(exercisetwo.maxcara(2753,2765),10)
+
 if __name__ == '__main__': 
     unittest.main()
